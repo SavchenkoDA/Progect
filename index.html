@@ -27,27 +27,21 @@
 
   <script>
     function calculate() {
-      // Получаем введенное число и процент от пользователя
-      var HirurgOpitniyInput = document.getElementById("HirurgOpitniyInput").value;
-      var HirurgInput = document.getElementById("HirurgInput").value;
-      var GlavVrachInput = document.getElementById("GlavVrachInput").value;
-      var PorazgenieTelaInput = document.getElementById("PorazgenieTelaInput").value;
+      // Получаем введенные значения от пользователя
+      var HirurgOpitniyInput = parseFloat(document.getElementById("HirurgOpitniyInput").value);
+      var HirurgInput = parseFloat(document.getElementById("HirurgInput").value);
+      var GlavVrachInput = parseFloat(document.getElementById("GlavVrachInput").value);
+      var PorazgenieTelaInput = parseFloat(document.getElementById("PorazgenieTelaInput").value);
       
-      // Преобразуем введенные значения в числа
-      var HirurgOpitniyInput = parseFloat(HirurgOpitniyInput);
-      var HirurgInput = parseFloat(HirurgInput);
-      var GlavVrachInput = parseFloat(GlavVrachInput);
-      var PorazgenieTelaInput = parseFloat(PorazgenieTelaInput);
-
-      // Вычисляем результат по формуле: (ч * п) / 100%
-      var result1 = (100 - (60 * HirurgOpitniyInput);
-      var result2 = (result1 - (40 * HirurgInput);
-      var result3 = (result2 - (50 * GlavVrachInput);
+      // Вычисляем результат по формуле
+      var result1 = (100 - (60 * HirurgOpitniyInput));
+      var result2 = (result1 - (40 * HirurgInput));
+      var result3 = (result2 - (50 * GlavVrachInput));
       var result4 = (100 - PorazgenieTelaInput);
-      var result5 = (result3 - (result4));
+      var result5 = (result3 - result4);
       
       // Выводим результат на страницу
-      document.getElementById("result5").innerText = "Результат: " + result5;
+      document.getElementById("result").innerText = "Результат: " + result5;
     }
   </script>
 </body>
