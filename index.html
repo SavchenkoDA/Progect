@@ -33,29 +33,33 @@
       var GlavVrachInput = parseFloat(document.getElementById("GlavVrachInput").value);
       var PorazgenieTelaInput = parseFloat(document.getElementById("PorazgenieTelaInput").value);
       
-      // Вычисляем результат по формуле
+       // Вычисляем результат по формуле
       var result1 = (0.6 * HirurgOpitniyInput);
       var result2 = (0.5 * GlavVrachInput);
       var result3 = (0.4 * HirurgInput);
       var result4 = (1 - (PorazgenieTelaInput / 100));   
 
       var perem1 = 1;
-      if ( result1 != 0 )
-        var perem1 = result1;
+      if (result1 !== 0) {
+        perem1 = result1;
+      }
 
       var perem2 = 1;
-      if ( result2 != 0 )
-        var perem2 = result1;
+      if (result2 !== 0) {
+        perem2 = result2;
+      }
 
       var perem3 = 1;
-      if ( result3 != 0 )
-        var perem3 = result1;
+      if (result3 !== 0) {
+        perem3 = result3;
+      }
 
       var perem4 = 1;
-      if ( result4 != 0 )
-        var perem4 = result1;
+      if (result4 !== 0) {
+        perem4 = result4;
+      }
 
-      var result5 = (perem1 * perem2 * perem3 * perem4);
+      var result5 = perem1 * perem2 * perem3 * perem4;
 
         
 
@@ -73,7 +77,7 @@
 
       
       // Выводим результат на страницу
-      document.getElementById("result5").innerText = "Результат: " + result5;
+      document.getElementById("result").innerHTML = "Результат: " + result5;
     }
   </script>
 </body>
