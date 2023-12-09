@@ -1,47 +1,48 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Стилизация заголовка */
+h1 {
+  color: #333;
+  text-align: center;
 }
 
-.calculator {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr;
+/* Стилизация контейнера */
+div {
+  margin: 20px;
   padding: 20px;
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: lightgray;
+  background-color: #f5f5f5;
 }
 
-input[type="number"] {
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: none;
+/* Стилизация меток */
+label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-select {
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: none;
+/* Стилизация ввода чисел */
+input[type="text"] {
+  width: 100px;
+  padding: 5px;
 }
 
-input[type="button"] {
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 5px;
+/* Стилизация кнопки */
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
   border: none;
-  background-color: #007bff;
-  color: white;
   cursor: pointer;
 }
 
-#result {
-  font-size: 24px;
-  text-align: center;
-  padding: 10px;
+/* Стилизация результатов */
+p {
   margin-top: 20px;
+}
+
+/* Стилизация первого результата */
+#result {
+  color: green;
+}
+
+/* Стилизация второго результата */
+#result1 {
+  color: blue;
 }
