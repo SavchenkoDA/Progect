@@ -1,79 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Калькулятор процентов</title>
-  <style>
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .calculator {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 20px;
-      border: 1px solid black;
-      border-radius: 5px;
-      background-color: lightgray;
-    }
-
-    .calculator input[type="number"],
-    .calculator select {
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .calculator input[type="button"] {
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 5px;
-      background-color: blue;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .calculator .result {
-      font-size: 18px;
-      font-weight: bold;
-    }
-  </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="calculator">
-      <label for="percentInput">Процент:</label>
-      <input type="number" id="percentInput">
-      <label for="firstVariableInput">Первая переменная:</label>
-      <input type="number" id="firstVariableInput">
-      <label for="secondVariableInput">Вторая переменная:</label>
-      <input type="number" id="secondVariableInput">
-      <input type="button" value="Рассчитать" onclick="calculate()">
-      <div class="result" id="result"></div>
-    </div>
+  <h1>Калькулятор процентов</h1>
+
+  <div>
+    <label for="percentInput">Введите проценты:</label>
+    <input type="text" id="percentInput" />
+
+    <button onclick="calculate()">Вычислить</button>
+
+    <p id="result"></p>
   </div>
 
   <script>
     function calculate() {
-      let percent = parseFloat(document.getElementById("percentInput").value);
-      let firstVariable = parseFloat(document.getElementById("firstVariableInput").value);
-      let secondVariable = parseFloat(document.getElementById("secondVariableInput").value);
+      // Получаем введенные проценты от пользователя
+      var percentInput = document.getElementById("percentInput").value;
 
-      let newVariable = firstVariable - (firstVariable * percent / 100);
-      let finalValue = newVariable - secondVariable;
+      // Преобразуем введенные проценты в число
+      var percent = parseFloat(percentInput);
 
-      document.getElementById("result").innerHTML = `Итоговое значение: ${finalValue}`;
+      // Вычисляем результат по формуле: (100% - 60%) - 40% ) - 30%
+      var result = (100 - 60) - 40 - 30;
+      
+      // Если введены проценты, добавляем их к результату
+      if (!isNaN(percent)) {
+        result -= percent;
+      }
+
+      // Выводим результат на страницу
+      document.getElementById("result").innerText = "Результат: " + result + "%";
     }
   </script>
 </body>
-
 </html>
