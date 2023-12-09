@@ -7,7 +7,10 @@
   <h1>Калькулятор процентов</h1>
 
   <div>
-    <label for="percentInput">Введите проценты:</label>
+    <label for="numberInput">Введите число:</label>
+    <input type="text" id="numberInput" />
+
+    <label for="percentInput">Введите процент:</label>
     <input type="text" id="percentInput" />
 
     <button onclick="calculate()">Вычислить</button>
@@ -17,23 +20,19 @@
 
   <script>
     function calculate() {
-      // Получаем введенные проценты от пользователя
+      // Получаем введенное число и процент от пользователя
+      var numberInput = document.getElementById("numberInput").value;
       var percentInput = document.getElementById("percentInput").value;
-
-      // Преобразуем введенные проценты в число
+      
+      // Преобразуем введенные значения в числа
+      var number = parseFloat(numberInput);
       var percent = parseFloat(percentInput);
 
-      // Вычисляем результат по формуле: (100% - 60%) - 40% ) - 30%
-      var result = (100 - 60) - 40 - 30;
+      // Вычисляем результат по формуле: (ч * п) / 100%
+      var result = (number * percent) / 100;
       
-      // Если введены проценты, вычитаем их из результата
-      if (!isNaN(percent)) {
-        var percentValue = result * (percent / 100);
-        result -= percentValue;
-      }
-
       // Выводим результат на страницу
-      document.getElementById("result").innerText = "Результат: " + result + "%";
+      document.getElementById("result").innerText = "Результат: " + result;
     }
   </script>
 </body>
