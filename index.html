@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+
 <head>
-  <title>Калькулятор шанса сгорания лампочки</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор процентов</title>
   <style>
     .container {
       display: flex;
@@ -11,81 +14,66 @@
     }
 
     .calculator {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
-      grid-template-columns: 1fr;
       padding: 20px;
       border: 1px solid black;
       border-radius: 5px;
       background-color: lightgray;
     }
 
-    input[type="number"] {
+    .calculator input[type="number"],
+    .calculator select {
       padding: 10px;
       font-size: 18px;
       border-radius: 5px;
       border: none;
     }
 
-    select {
+    .calculator input[type="button"] {
       padding: 10px;
       font-size: 18px;
       border-radius: 5px;
-      border: none;
-    }
-
-    input[type="button"] {
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 5px;
-      border: none;
-      background-color: #007bff;
+      background-color: blue;
       color: white;
+      border: none;
       cursor: pointer;
     }
 
-    #result {
-      font-size: 24px;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+    .calculator .result {
+      font-size: 18px;
+      font-weight: bold;
     }
   </style>
-  <script>
-    function calculateChance() {
-      // Получаем значения предохранителей и дополнительного процента
-      var fuse1 = parseFloat(document.getElementById("fuse1").value);
-      var fuse2 = parseFloat(document.getElementById("fuse2").value);
-      var fuse3 = parseFloat(document.getElementById("fuse3").value);
-      var additionalPercent = parseFloat(document.getElementById("additionalPercent").value);
-
-      // Рассчитываем шанс сгорания лампочки
-      var chance = (100 - fuse1 - fuse2 - fuse3 - additionalPercent).toFixed(2);
-
-      // Выводим результат
-      document.getElementById("result").textContent = "Шанс сгорания лампочки: " + chance + "%";
-    }
-  </script>
 </head>
+
 <body>
   <div class="container">
     <div class="calculator">
-      <label for="fuse1">Предохранитель 1:</label>
-      <input type="number" id="fuse1" min="0" max="100" step="0.01">
-      
-      <label for="fuse2">Предохранитель 2:</label>
-      <input type="number" id="fuse2" min="0" max="100" step="0.01">
-      
-      <label for="fuse3">Предохранитель 3:</label>
-      <input type="number" id="fuse3" min="0" max="100" step="0.01">
-      
-      <label for="additionalPercent">Дополнительный процент несгорания:</label>
-      <input type="number" id="additionalPercent" min="0" max="100" step="0.01">
-      
-      <input type="button" value="Расчитать" onclick="calculateChance()">
-      
-      <div id="result"></div>
+      <label for="percentInput">Процент:</label>
+      <input type="number" id="percentInput">
+      <label for="firstVariableInput">Первая переменная:</label>
+      <input type="number" id="firstVariableInput">
+      <label for="secondVariableInput">Вторая переменная:</label>
+      <input type="number" id="secondVariableInput">
+      <input type="button" value="Рассчитать" onclick="calculate()">
+      <div class="result" id="result"></div>
     </div>
   </div>
+
+  <script>
+    function calculate() {
+      let percent = parseFloat(document.getElementById("percentInput").value);
+      let firstVariable = parseFloat(document.getElementById("firstVariableInput").value);
+      let secondVariable = parseFloat(document.getElementById("secondVariableInput").value);
+
+      let newVariable = firstVariable - (firstVariable * percent / 100);
+      let finalValue = newVariable - secondVariable;
+
+      document.getElementById("result").innerHTML = `Итоговое значение: ${finalValue}`;
+    }
+  </script>
 </body>
+
 </html>
