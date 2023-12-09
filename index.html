@@ -61,27 +61,6 @@
   </script>
 <body>
   
-  <title>Алгоритм удачи</title>
-    <script>
-        function checkLuck(percent) {
-            // Генерируем случайное число от 0 до 99
-            var random = Math.floor(Math.random() * 100);
 
-            // Определяем, случилась ли удача
-            var isSuccess = random < percent;
-
-            // Выводим результат на страницу
-            var survival = document.getElementById("survival");
-            survival.innerHTML = isSuccess ? "Удача случилась!" : "Удача не случилась.";
-        }
-    </script>
-</head>
-<body>
-    <h1>Алгоритм удачи</h1>
-    <label for="percent">Процент удачи (от 0 до 100):</label>
-    <input type="number" id="percent" min="0" max="100" value="50">
-    <button onclick="checkLuck(parseInt(document.getElementById('percent').value));">Проверить</button>
-    <div id="survival"></div>
-</body>
 
 </html>
