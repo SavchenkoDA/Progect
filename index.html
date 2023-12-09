@@ -34,7 +34,7 @@
       var PorazgenieTelaInput = parseFloat(document.getElementById("PorazgenieTelaInput").value);
       
       // Вычисляем результат по формуле
-      var result1 = ((0.6 * HirurgOpitniyInput) * (0.5 GlavVrachInput)* (0.4 * HirurgInput))
+      var result1 = (1 - ((0.6 * HirurgOpitniyInput) * (0.5 GlavVrachInput)* (0.4 * HirurgInput) * (PorazgenieTelaInput / 100)));
 
       document.getElementById("result1");
       
