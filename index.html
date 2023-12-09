@@ -7,11 +7,18 @@
   <h1>Калькулятор процентов</h1>
 
   <div>
-    <label for="numberInput">Введите число:</label>
-    <input type="text" id="numberInput" />
+    <label for="numberInput">Количество опытных хирургов: </label>
+    <input type="text" id="HirurgOpitniyInput" />
 
-    <label for="percentInput">Введите процент:</label>
-    <input type="text" id="percentInput" />
+    <label for="numberInput">Количество обычных хирургов: </label>
+    <input type="text" id="HirurgInput" />
+
+
+    <label for="numberInput">Есть главный врач? </label>
+    <input type="text" id="GlavVrachInput" />
+    
+    <label for="percentInput">Процент поражения тела:</label>
+    <input type="text" id="PorazgenieTelaInput" />
 
     <button onclick="calculate()">Вычислить</button>
 
@@ -21,18 +28,26 @@
   <script>
     function calculate() {
       // Получаем введенное число и процент от пользователя
-      var numberInput = document.getElementById("numberInput").value;
-      var percentInput = document.getElementById("percentInput").value;
+      var HirurgOpitniyInput = document.getElementById("HirurgOpitniyInput").value;
+      var HirurgInput = document.getElementById("HirurgInput").value;
+      var GlavVrachInput = document.getElementById("GlavVrachInput").value;
+      var PorazgenieTelaInput = document.getElementById("PorazgenieTelaInput").value;
       
       // Преобразуем введенные значения в числа
-      var number = parseFloat(numberInput);
-      var percent = parseFloat(percentInput);
+      var HirurgOpitniyInput = parseFloat(HirurgOpitniyInput);
+      var HirurgInput = parseFloat(HirurgInput);
+      var GlavVrachInput = parseFloat(GlavVrachInput);
+      var PorazgenieTelaInput = parseFloat(PorazgenieTelaInput);
 
       // Вычисляем результат по формуле: (ч * п) / 100%
-      var result = (number * percent) / 100;
+      var result1 = (100 - (60 * HirurgOpitniyInput);
+      var result2 = (result1 - (40 * HirurgInput);
+      var result3 = (result2 - (50 * GlavVrachInput);
+      var result4 = (100 - PorazgenieTelaInput);
+      var result5 = (result3 - (result4));
       
       // Выводим результат на страницу
-      document.getElementById("result").innerText = "Результат: " + result;
+      document.getElementById("result5").innerText = "Результат: " + result5;
     }
   </script>
 </body>
