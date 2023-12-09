@@ -56,8 +56,14 @@
 
     var result4 = 1 - perem1 * perem2 * perem3;
 
+
+      var result5 = 0;
+      if ( Math.round(Math.random()*100) >= result4)
+        var result5 = 1;
+
     // Выводим результат на страницу
     document.getElementById("result").innerHTML = "Вероятность выжить: " + (result4 * 100) + "%";
+      document.getElementById("result").innerHTML = "Выжил?: " + (result5);
 }
   </script>
 
