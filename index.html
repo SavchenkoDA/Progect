@@ -14,7 +14,7 @@
     <input type="text" id="HirurgInput" />
 <br>
 
-    <label for="numberInput">Есть главный врач? </label>
+    <label for="numberInput">Количество главных врачей: </label>
     <input type="text" id="GlavVrachInput" />
     <br>
     <label for="percentInput">Процент поражения тела:</label>
@@ -34,12 +34,46 @@
       var PorazgenieTelaInput = parseFloat(document.getElementById("PorazgenieTelaInput").value);
       
       // Вычисляем результат по формуле
-      var result1 = (1 - ((0.6 * HirurgOpitniyInput) * (0.5 GlavVrachInput)* (0.4 * HirurgInput) * (PorazgenieTelaInput / 100)));
+      var result1 = (0.6 * HirurgOpitniyInput);
+      var result2 = (0.5 * GlavVrachInput);
+      var result3 = (0.4 * HirurgInput);
+      var result4 = (1 - (PorazgenieTelaInput / 100));   
 
+      var perem1 = 1;
+      if ( result1 != 0 )
+        var perem1 = result1;
+
+      var perem2 = 1;
+      if ( result2 != 0 )
+        var perem2 = result1;
+
+      var perem3 = 1;
+      if ( result3 != 0 )
+        var perem3 = result1;
+
+      var perem4 = 1;
+      if ( result4 != 0 )
+        var perem4 = result1;
+
+      var result5 = (perem1 * perem2 * perem3 * perem4);
+
+        
+
+      
       document.getElementById("result1");
+      document.getElementById("result2");
+      document.getElementById("result3");
+      document.getElementById("result4");
+      document.getElementById("perem1");
+      document.getElementById("perem2");
+      document.getElementById("perem3");
+      document.getElementById("perem4");
+      
+      document.getElementById("result5");
+
       
       // Выводим результат на страницу
-      document.getElementById("result1").innerText = "Результат: " + result1;
+      document.getElementById("result5").innerText = "Результат: " + result5;
     }
   </script>
 </body>
