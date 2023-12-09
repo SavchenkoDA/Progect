@@ -21,7 +21,7 @@
     <button onclick="calculate()">Вычислить</button>
 
     <p id="result"></p>
-    <p id="result1"></p>
+    <p id="survival"></p>
   </div>
 
   <script>
@@ -54,8 +54,24 @@
 
     var result4 = 1 - perem1 * perem2 * perem3;
 
+  
+
     // Выводим результат на страницу
     document.getElementById("result").innerHTML = "Вероятность выжить: " + (result4 * 100) + "%";
+
+      
+      function checkLuck(percent) {
+            // Генерируем случайное число от 0 до 99
+            var random = Math.floor(result4 * 100);
+
+            // Определяем, случилась ли удача
+            var isSuccess = random < percent;
+
+            // Выводим результат на страницу
+            var survival = document.getElementById("survival");
+            survival.innerHTML = isSuccess ? "Удача случилась!" : "Удача не случилась.";
+        }
+
 }
   </script>
 
