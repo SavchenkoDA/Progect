@@ -27,58 +27,36 @@
 
   <script>
     function calculate() {
-      // Получаем введенные значения от пользователя
-      var HirurgOpitniyInput = parseFloat(document.getElementById("HirurgOpitniyInput").value);
-      var HirurgInput = parseFloat(document.getElementById("HirurgInput").value);
-      var GlavVrachInput = parseFloat(document.getElementById("GlavVrachInput").value);
-      var PorazgenieTelaInput = parseFloat(document.getElementById("PorazgenieTelaInput").value);
-      
-       // Вычисляем результат по формуле
-      var result1 = (0.6 * HirurgOpitniyInput);
-      var result2 = (0.5 * GlavVrachInput);
-      var result3 = (0.4 * HirurgInput);
-      var result4 = (1 - (PorazgenieTelaInput / 100));   
+    // Получаем введенные значения от пользователя
+    var HirurgOpitniyInput = parseFloat(document.getElementById("HirurgOpitniyInput").value);
+    var HirurgInput = parseFloat(document.getElementById("HirurgInput").value);
+    var GlavVrachInput = parseFloat(document.getElementById("GlavVrachInput").value);
 
-      var perem1 = 1;
-      if (result1 !== 0) {
+    // Вычисляем результат по формуле
+    var result1 = 0.6 * HirurgOpitniyInput;
+    var result2 = 0.5 * GlavVrachInput;
+    var result3 = 0.4 * HirurgInput;
+
+    var perem1 = 1;
+    if (result1 !== 0) {
         perem1 = result1;
-      }
-
-      var perem2 = 1;
-      if (result2 !== 0) {
-        perem2 = result2;
-      }
-
-      var perem3 = 1;
-      if (result3 !== 0) {
-        perem3 = result3;
-      }
-
-      var perem4 = 1;
-      if (result4 !== 0) {
-        perem4 = result4;
-      }
-
-      var result5 = perem1 * perem2 * perem3 * perem4;
-
-        
-
-      
-      document.getElementById("result1");
-      document.getElementById("result2");
-      document.getElementById("result3");
-      document.getElementById("result4");
-      document.getElementById("perem1");
-      document.getElementById("perem2");
-      document.getElementById("perem3");
-      document.getElementById("perem4");
-      
-      document.getElementById("result5");
-
-      
-      // Выводим результат на страницу
-      document.getElementById("result").innerHTML = "Результат: " + result5;
     }
+
+    var perem2 = 1;
+    if (result2 !== 0) {
+        perem2 = result2;
+    }
+
+    var perem3 = 1;
+    if (result3 !== 0) {
+        perem3 = result3;
+    }
+
+    var result4 = perem1 * perem2 * perem3;
+
+    // Выводим результат на страницу
+    document.getElementById("result").innerHTML = "Результат: " + result4;
+}
   </script>
 </body>
 </html>
