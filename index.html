@@ -61,4 +61,64 @@
 }
   </script>
 
+
+
+  <head>
+  <title>Колесо фортуны</title>
+  <style>
+    /* Стилизация колеса фортуны */
+    .wheel {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background-color: #f5f5f5;
+      overflow: hidden;
+    }
+    
+    /* Стилизация секторов колеса */
+    .sector {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 4s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>Колесо фортуны</h1>
+  
+  <div class="wheel">
+    <div class="sector" id="sector1">Сектор 1</div>
+    <div class="sector" id="sector2">Сектор 2</div>
+    <div class="sector" id="sector3">Сектор 3</div>
+    <div class="sector" id="sector4">Сектор 4</div>
+    <div class="sector" id="sector5">Сектор 5</div>
+    <div class="sector" id="sector6">Сектор 6</div>
+    <div class="sector" id="sector7">Сектор 7</div>
+    <div class="sector" id="sector8">Сектор 8</div>
+    <div class="sector" id="sector9">Сектор 9</div>
+    <div class="sector" id="sector10">Сектор 10</div>
+  </div>
+  
+  <button onclick="spinWheel()">Крутить</button>
+  
+  <script>
+    // Функция для раскрутки колеса
+    function spinWheel() {
+      var sectors = document.getElementsByClassName('sector');
+      var randomSector = Math.floor(Math.random() * sectors.length);
+      var degree = 360 / sectors.length;
+      var rotateDegree = (randomSector * degree) + 1800; // Дополнительные обороты
+      
+      for (var i = 0; i < sectors.length; i++) {
+        sectors[i].style.transform = 'rotate(' + rotateDegree + 'deg)';
+      }
+    }
+  </script>
+</body>
+
+  
 </html>
