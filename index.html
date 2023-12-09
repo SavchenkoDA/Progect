@@ -58,4 +58,65 @@
 }
   </script>
 </body>
+
+  <head>
+    <title>Колесо удачи</title>
+    <style>
+        #wheel {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            position: relative;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 200px;
+        }
+
+        #pointer {
+            width: 5px;
+            height: 120px;
+            background: red;
+            position: absolute;
+            top: 40px;
+            left: 97px;
+            transform-origin: bottom;
+            transform: rotate(0deg);
+            transition: transform 3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="wheel">
+        <div id="pointer"></div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        var probability = 0.88;  // Вероятность выпадения числа
+
+        // Получаем случайное число от 0 до 1
+        var randomNumber = Math.random();
+
+        // Сообщаем, сколько прокруток колеса будет
+        // для достижения заданной вероятности выпадения числа
+        var rotations = Math.ceil(Math.log(1 - probability) / Math.log(1 - randomNumber));
+
+        // Вычисляем угол для прокрутки колеса
+        var angle = rotations * 360;
+
+        // Прокручиваем колесо
+        var wheel = document.getElementById("wheel");
+        var pointer = document.getElementById("pointer");
+        
+        setTimeout(function() {
+            pointer.style.transform = "rotate(" + angle + "deg)";
+
+            // Выводим результат на страницу
+            var result = document.getElementById("result");
+            result.innerHTML = "Число: " + randomNumber.toFixed(2);
+        }, 1000);
+    </script>
+</body>
 </html>
