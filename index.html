@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Резня бензопилой</title>
-<link rel="stylesheet" href="styles.css">
-
+    <script>
+    function calculate() {
+    // Получаем введенные значения от пользователя
+    var HirurgOpitniyInput = parseFloat(document.getElementById("HirurgOpitniyInput").value);
+    var HirurgInput = parseFloat(document.getElementById("HirurgInput").value);
+    var GlavVrachInput = parseFloat(document.getElementById("GlavVrachInput").value);
+    // Вычисляем результат по формуле
+    var result1 = 0.6 ** HirurgOpitniyInput;
+    var result2 = 0.5 ** GlavVrachInput;
+    var result3 = 0.4 ** HirurgInput;
+    var perem1 = 1;
+    if (result1 !== 0) {
+        perem1 = result1;
+    }
+    var perem2 = 1;
+    if (result2 !== 0) {
+        perem2 = result2;
+    }
+    var perem3 = 1;
+    if (result3 !== 0) {
+        perem3 = result3;
+    }
+    var result4 = 1 - perem1 * perem2 * perem3;
+      var result5 = 0;
+      if ( Math.round(Math.random()*100) >= result4)
+        var result5 = 1;
+    // Выводим результат на страницу
+    document.getElementById("result").innerHTML = "Вероятность выжить: " + (result4 * 100) + "%";
+}
+ </script>
 </head>
 <body>
   <h1>Шанс выжить</h1>
-
   <div>
     <label for="numberInput">Количество хирургов: </label>
     <input type="text" id="HirurgOpitniyInput" />
@@ -15,11 +41,9 @@
     <label for="numberInput">Количество опытных хирургов: </label>
     <input type="text" id="HirurgInput" />
 <br>
-
     <label for="numberInput">Количество главных врачей: </label>
     <input type="text" id="GlavVrachInput" />
     <br>
-
     <button onclick="calculate()">Вычислить</button>
 <br>
     <p id="result"></p>
@@ -27,56 +51,9 @@
     <p id="result5"></p>
   </div>
 
-<label for="inputNumber">Введите число от 1 до 100:</label>
-  <input type="number" id="inputNumber" min="1" max="100">
-  <button onclick="compareNumbers()">Проверить</button>
-  <p id="result"></p>
-  </body>
-
 
   
-  <script>
-    function calculate() {
-    // Получаем введенные значения от пользователя
-    var HirurgOpitniyInput = parseFloat(document.getElementById("HirurgOpitniyInput").value);
-    var HirurgInput = parseFloat(document.getElementById("HirurgInput").value);
-    var GlavVrachInput = parseFloat(document.getElementById("GlavVrachInput").value);
-
-    // Вычисляем результат по формуле
-
-    var result1 = 0.6 ** HirurgOpitniyInput;
-    var result2 = 0.5 ** GlavVrachInput;
-    var result3 = 0.4 ** HirurgInput;
-
-    var perem1 = 1;
-    if (result1 !== 0) {
-        perem1 = result1;
-    }
-
-    var perem2 = 1;
-    if (result2 !== 0) {
-        perem2 = result2;
-    }
-
-    var perem3 = 1;
-    if (result3 !== 0) {
-        perem3 = result3;
-    }
-
-    var result4 = 1 - perem1 * perem2 * perem3;
-
-
-      var result5 = 0;
-      if ( Math.round(Math.random()*100) >= result4)
-        var result5 = 1;
-
-    // Выводим результат на страницу
-    document.getElementById("result").innerHTML = "Вероятность выжить: " + (result4 * 100) + "%";
-   
-}
- </script>
-
-     <script>
+<script>
     function compareNumbers() {
       var inputNumber = parseInt(document.getElementById("inputNumber").value);
       var randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -86,8 +63,19 @@
       } else {
         document.getElementById("result").innerHTML = "Нет";
       }
+    }
   </script>
+</head>
+<body>
+  <label for="inputNumber">Введите число от 1 до 100:</label>
+  <input type="number" id="inputNumber" min="1" max="100">
+  <button onclick="compareNumbers()">Проверить</button>
+  <p id="result"></p>
 
+
+  
+  
+    
 
 
 </html>
