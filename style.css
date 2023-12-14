@@ -4,6 +4,15 @@ h1 {
   text-align: center;
 }
 
+/* Выравнивание по центру */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
 /* Стилизация контейнера */
 div {
   margin: 20px;
