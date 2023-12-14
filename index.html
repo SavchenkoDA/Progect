@@ -28,7 +28,29 @@
       if ( Math.round(Math.random()*100) >= result4)
         var result5 = 1;
     // Выводим результат на страницу
-    document.getElementById("result").innerHTML = "Вероятность выжить: " + (result4 * 100) + "%";
+  // document.getElementById("result").innerHTML = "Вероятность выжить: " + (result4 * 100) + "%";
+
+
+      var coeff = 0;
+      // Проверяем, какая кнопка выбрана
+      var radios = document.getElementsByName("btn");
+      for (var i = 0; i < radios.length; i++) {
+          if (radios[i].checked) {
+              coeff = radios[i].value;
+              break;
+          }
+      }
+      
+      var peremen = coeff * (result4 * 100);
+      
+      // Выводим результат
+      document.getElementById("output").innerHTML = "Результат: " + result;
+
+
+
+
+
+        
 }
  </script>
 </head>
